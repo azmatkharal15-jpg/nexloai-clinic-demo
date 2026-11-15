@@ -80,10 +80,11 @@ def chat(body: ChatIn):
     get_clinic(body.clinic_slug)
     try:
         reply = bot.ask(f"web-{body.session_id}", body.message, channel="web", clinic_slug=body.clinic_slug)
-    except Exception:
-        raise HTTPException(status_code=503, detail="The assistant is temporarily unavailable. Please try again shortly.") from None
-    return {"reply": reply}
-
+        return {"reply": reply}
+    except Exception as e:
+        # 🔥 ASAL ERROR PRINT KARNE KE LIYE (Temporary)
+        print(f"CHAT ERROR: {type(e).__name__} - {str(e)}")
+        raise HTTPException(status_code=503, detail=f"Error: {str(e)}") from None
 @app.post("/reload")
 def reload_prompt(request: Request, clinic_slug: str = "zia-medical-center"):
     expected = os.getenv("ADMIN_TOKEN")
