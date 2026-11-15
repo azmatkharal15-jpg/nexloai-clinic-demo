@@ -1,3 +1,4 @@
+import logger
 import os
 from pathlib import Path
 
@@ -77,21 +78,14 @@ def get_quick_replies(clinic_slug: str):
 
 @app.post("/chat")
 def chat(body: ChatIn):
-    print(f"DEBUG: Received request for clinic: {body.clinic_slug}")
     try:
         get_clinic(body.clinic_slug)
-        print("DEBUG: Clinic loaded successfully")
-        
         reply = bot.ask(f"web-{body.session_id}", body.message, channel="web", clinic_slug=body.clinic_slug)
-        print("DEBUG: Bot replied successfully")
-        
         return {"reply": reply}
     except Exception as e:
-        import traceback
-        print("========================================")
-        print("🚨 CHAT ERROR OCCURRED 🚨")
-        traceback.print_exc() # Yeh poori detail print karega
-        print("========================================")
+        # Error ko file mein save karein
+        logger.log_error(e) 
+        # Browser ko bata dein ke error aya hai
         raise HTTPException(status_code=503, detail=f"Error: {str(e)}") from None
 @app.post("/reload")
 def reload_prompt(request: Request, clinic_slug: str = "zia-medical-center"):
@@ -113,3 +107,10 @@ async def wa_incoming(request: Request, background: BackgroundTasks):
     payload = await request.json()
     background.add_task(whatsapp.handle, payload)
     return {"ok": True}
+@app.get("/view-errors")
+def view_errors():
+    try:
+        with open("server_error_log.txt", "r", encoding="utf-8") as f:
+            return {"errors": f.read()}
+    except FileNotFoundError:
+        return {"message": "No errors found yet! Everything is working perfectly."}
