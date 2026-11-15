@@ -1,0 +1,12 @@
+{
+  "id": "dr-humeira",
+  "enabled": true,
+  "name": "Dr. Humeira Medical Center",
+  "subtitle": "Healthcare Clinic",
+  "welcome": "Welcome to Dr. Humeira Medical Center. How can I help you today?",
+  "phone": "+971 52 905 5334",
+  "email": "info@drhumeiramedicalcenter.com",
+  "website": "drhumeiramedicalcenter.com",
+  "prompt_file": "clinics/dr-humeira/prompt.txt",
+  "knowledge_base_file": "clinics/dr-humeira/knowledge.txt"
+}

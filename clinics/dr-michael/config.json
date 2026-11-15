@@ -1,0 +1,12 @@
+{
+  "id": "dr-michael",
+  "enabled": true,
+  "name": "Dr. Michael's Dental Clinic",
+  "subtitle": "Healthcare Clinic",
+  "welcome": "Welcome to Dr. Michael's Dental Clinic. How can I help you today?",
+  "phone": "+971 54 443 6598",
+  "email": "info@drmichaels.com",
+  "website": "drmichaels.com",
+  "prompt_file": "clinics/dr-michael/prompt.txt",
+  "knowledge_base_file": "clinics/dr-michael/knowledge.txt"
+}

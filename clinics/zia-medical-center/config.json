@@ -1,0 +1,12 @@
+{
+  "id": "zia-medical-center",
+  "enabled": true,
+  "name": "Zia Medical Center",
+  "subtitle": "Healthcare Clinic",
+  "welcome": "Welcome to Zia Medical Center. How can I help you today?",
+  "phone": "+971 56 504 9345",
+  "email": "contact@ziamedicalcenter.com",
+  "website": "ziamedicalcenter.com",
+  "prompt_file": "clinics/zia-medical-center/prompt.txt",
+  "knowledge_base_file": "clinics/zia-medical-center/knowledge.txt"
+}

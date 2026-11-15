@@ -1,0 +1,12 @@
+{
+  "id": "evergreen",
+  "enabled": true,
+  "name": "Evergreen Polyclinic Dubai",
+  "subtitle": "Healthcare Clinic",
+  "welcome": "Welcome to Evergreen Polyclinic Dubai. How can I help you today?",
+  "phone": "+971 52 138 9415",
+  "email": "info@evergreenpolyclinic.ae",
+  "website": "evergreenpolyclinic.ae",
+  "prompt_file": "clinics/evergreen/prompt.txt",
+  "knowledge_base_file": "clinics/evergreen/knowledge.txt"
+}

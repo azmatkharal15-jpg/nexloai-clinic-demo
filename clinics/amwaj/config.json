@@ -1,0 +1,12 @@
+{
+  "id": "amwaj",
+  "enabled": true,
+  "name": "Amwaj Polyclinic",
+  "subtitle": "Healthcare Clinic",
+  "welcome": "Welcome to Amwaj Polyclinic. How can I help you today?",
+  "phone": "+971 50 557 1236",
+  "email": "info@amwajpolyclinic.com",
+  "website": "amwajpolyclinic.com",
+  "prompt_file": "clinics/amwaj/prompt.txt",
+  "knowledge_base_file": "clinics/amwaj/knowledge.txt"
+}
