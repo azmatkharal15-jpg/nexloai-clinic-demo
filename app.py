@@ -77,13 +77,21 @@ def get_quick_replies(clinic_slug: str):
 
 @app.post("/chat")
 def chat(body: ChatIn):
-    get_clinic(body.clinic_slug)
+    print(f"DEBUG: Received request for clinic: {body.clinic_slug}")
     try:
+        get_clinic(body.clinic_slug)
+        print("DEBUG: Clinic loaded successfully")
+        
         reply = bot.ask(f"web-{body.session_id}", body.message, channel="web", clinic_slug=body.clinic_slug)
+        print("DEBUG: Bot replied successfully")
+        
         return {"reply": reply}
     except Exception as e:
-        # 🔥 ASAL ERROR PRINT KARNE KE LIYE (Temporary)
-        print(f"CHAT ERROR: {type(e).__name__} - {str(e)}")
+        import traceback
+        print("========================================")
+        print("🚨 CHAT ERROR OCCURRED 🚨")
+        traceback.print_exc() # Yeh poori detail print karega
+        print("========================================")
         raise HTTPException(status_code=503, detail=f"Error: {str(e)}") from None
 @app.post("/reload")
 def reload_prompt(request: Request, clinic_slug: str = "zia-medical-center"):
